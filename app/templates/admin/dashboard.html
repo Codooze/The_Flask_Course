@@ -1,12 +1,16 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
-    <h1 style="color:brown">Admin Dashboard</h1>
-    <p>This is the the Admin Dashboard!</p>
-</body>
-</html>
+<!--- child template of admin_templates -->
+<!--! ojo que es / no con el otro slash no funciona -->
+{% extends "admin/templates/admin_templates.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>admin dashboard (from block main)</h1>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

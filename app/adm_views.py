@@ -10,4 +10,4 @@ def admin_dashboard():
 
 @app.route("/admin/profile")
 def admin_profile():
-    return "Estás en adm profile"
+    return render_template("admin/adm_Profile.html")
