@@ -1,0 +1,78 @@
+{% extends "public/templates/public_template.html" %}
+{% import "macros/input_macros.html" as im %}
+
+
+
+{% block title %}jinja{% endblock %}
+
+{% block main %}
+<h1>Jinja templates</h1>
+<h4>variables</h4>
+<p>Hola bienvenido {{ name }} ¿cómo esta usted?</p>
+<p>Esta esta opción pero porque tener la logica en python puro y no en flask?</p>
+
+<h4>Looping</h4>
+<ul>
+    {% for lang in langs %}
+            <li>{{ lang }}</li>
+    {% endfor %}
+    
+</ul>
+
+<h4>Looping  with index</h4>
+<ol>
+    {% for lang in langs %}
+            <li>{{ lang }}</li:> ¿it's cool?
+            <li:>{{cool}}</li>
+    {% endfor %}
+</ol>
+
+<h4>Looping a dic</h4>
+<ul>
+    {% for k, v in pets.items() %}
+            {{k}}:{{v}}
+    {% endfor %}
+    <br>
+    <p>Se puede poner en vertical también</p>
+</ul>
+
+<h4>Access dic members:</h4>
+<p>{{pets["Mishu"]}}</p>
+<h4>Aceess class atributes:</h4>
+<p>{{my_remote.name}} {{my_remote.description}}</p>
+
+<h4>Unpack variables:</h4>
+<p>We can set variables in our templates</p>
+<p style="font-size: small;">here we unpacked from a tuple:</p>
+{% set a,b,c = colors %} <!-- with this we have fuul acces  to our a,b variables in our template -->
+<p>{{a}}</p>
+<p>{{b}}  {{c}}</p>
+
+<h4>Call a funtion:</h4>
+<p>{{repeat(" Flask is Awesome",10)}}</p>
+
+<h4>Call a class Method:</h4>
+<p>{{my_remote.clone()}}</p>
+
+<h4>Conditionals:</h4>
+{% if cool %}
+        <p>Cool is {{cool}}</p>
+{% endif %}
+
+<h4>Template filters</h4>
+<p style="font-size: small;"> They are really powerful</p>
+<p>how many programming languages do you know? : {{langs|length}} : {{langs|join(",")}}</p><!---join-->
+<p>{{name|reverse}}  {{name|upper}}</p>
+
+<h4>Custom filters:</h4>
+    <p>{{date|clean_date}}</p>
+
+<h4>Macros:</h4>
+<hr><!---a macro is like a reusable funtion withing our template-->
+<p style="font-size: small;">Macros are really cool</p>
+
+{{ im.input(label="Your name", name="name", id="name", placeholder="Please enter your name!")}}
+{{ im.input(label="Age", type="number", name="Age", id="Age", placeholder="Please enter your age!")}}
+{{ im.input(label="Password", type="password", name="password", id="password", placeholder="Please enter a password!")}}
+
+{% endblock %}
